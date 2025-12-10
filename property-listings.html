@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties - Renovyte. Estates</title>
+    <link rel="icon"
+        href="https://www.codewithfaraz.com/tools/placeholder?size=32x32&bgColor=FDFDFB&textColor=1A1A1A&text=EE"
+        type="image/png">
+
+    <!-- Tailwind CSS CDN -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Swiper.js -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <!-- Custom Styles -->
+     <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/styles.css">
+
+    
+</head>
+
+<body id="top" class="antialiased">
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-indicator" style="width: 0%;"></div>
+
+    <!-- ===== Header & Navbar ===== -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="font-display text-3xl font-bold text-ivory tracking-wide" id="logo">
+                Elysian
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-8 items-center">
+                <a href="index.html"
+                    class="text-ivory/80 hover:text-soft-gold transition-colors duration-300 nav-link-desktop">Home</a>
+                <a href="property-listings.html"
+                    class="text-ivory/80 hover:text-soft-gold transition-colors duration-300 nav-link-desktop">Properties</a>
+                <a href="agents.html"
+                    class="text-ivory/80 hover:text-soft-gold transition-colors duration-300 nav-link-desktop">Agents</a>
+                <a href="about-us.html"
+                    class="text-ivory/80 hover:text-soft-gold transition-colors duration-300 nav-link-desktop">About</a>
+                <a href="contact.html"
+                    class="bg-ivory text-charcoal px-6 py-3 rounded-md text-sm font-semibold hover:bg-soft-gold hover:text-charcoal shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+                    id="nav-cta-desktop">
+                    GET A QUOTE
+                </a>
+            </nav>
+
+            <!-- Hamburger Menu Button Placeholder -->
+            <div class="lg:hidden w-[28px] h-[36px]"></div>
+        </div>
+    </header>
+
+    <!-- ===== Hamburger Menu Button ===== -->
+    <button id="hamburger-btn" class="lg:hidden z-[60] hamburger fixed top-5 right-6">
+        <span class="bg-ivory"></span>
+        <span class="bg-ivory"></span>
+        <span class="bg-ivory"></span>
+    </button>
+
+    <!-- ===== Full-screen Nav Overlay ===== -->
+    <div id="nav-overlay"
+        class="nav-overlay fixed inset-0 bg-charcoal z-[55] flex flex-col items-center justify-center space-y-10">
+        <a href="index.html" class="text-ivory text-4xl font-display">Home</a>
+        <a href="property-listings.html" class="text-ivory text-4xl font-display">Properties</a>
+        <a href="agents.html" class="text-ivory text-4xl font-display">Agents</a>
+        <a href="about-us.html" class="text-ivory text-4xl font-display">About</a>
+        <a href="contact.html" class="text-ivory text-4xl font-display">GET A QUOTE</a>
+    </div>
+
+    <main>
+
+        <!-- ===== Hero Section ===== -->
+        <section class="min-h-[60vh] lg:min-h-[70vh] flex items-end relative overflow-hidden pt-20">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Elysian%20Real%20Estate%20Template/1.png"
+                    alt="Properties Hero" class="w-full h-full object-cover object-center">
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0" style="background: linear-gradient(to top, #171200, rgba(23, 18, 0, 0.6), transparent);"></div>
+            </div>
+
+            <!-- Hero Content -->
+            <div class="container mx-auto px-6 pb-20 md:pb-32 relative z-10 text-left">
+                <div data-aos="fade-up">
+                    <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-ivory leading-tight mb-6">
+                        Our Properties
+                    </h1>
+                    <p class="text-lg md:text-xl text-ivory/80 max-w-2xl">
+                        Discover our exclusive collection of luxury properties worldwide.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Filter Section ===== -->
+        <section class="py-12 bg-ivory border-b border-light-gray">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <!-- Location Filter -->
+                    <div>
+                        <label class="block text-sm font-semibold text-charcoal mb-2">Location</label>
+                        <select id="location-filter"
+                            class="w-full px-4 py-2 border border-light-gray rounded-md text-charcoal focus:outline-none focus:ring-2 focus:ring-soft-gold">
+                            <option value="">All Locations</option>
+                            <option value="san-diego">San Diego, CA</option>
+                            <option value="aspen">Aspen, CO</option>
+                            <option value="new-york">New York, NY</option>
+                            <option value="miami">Miami, FL</option>
+                            <option value="los-angeles">Los Angeles, CA</option>
+                        </select>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div>
+                        <label class="block text-sm font-semibold text-charcoal mb-2">Price Range</label>
+                        <select id="price-filter"
+                            class="w-full px-4 py-2 border border-light-gray rounded-md text-charcoal focus:outline-none focus:ring-2 focus:ring-soft-gold">
+                            <option value="">All Prices</option>
+                            <option value="under-10">Under $10M</option>
+                            <option value="10-20">$10M - $20M</option>
+                            <option value="20-30">$20M - $30M</option>
+                            <option value="30-plus">$30M+</option>
+                        </select>
+                    </div>
+
+                    <!-- Bedrooms Filter -->
+                    <div>
+                        <label class="block text-sm font-semibold text-charcoal mb-2">Bedrooms</label>
+                        <select id="bedrooms-filter"
+                            class="w-full px-4 py-2 border border-light-gray rounded-md text-charcoal focus:outline-none focus:ring-2 focus:ring-soft-gold">
+                            <option value="">All Bedrooms</option>
+                            <option value="3">3+</option>
+                            <option value="4">4+</option>
+                            <option value="5">5+</option>
+                            <option value="6">6+</option>
+                        </select>
+                    </div>
+
+                    <!-- Status Filter -->
+                    <div>
+                        <label class="block text-sm font-semibold text-charcoal mb-2">Status</label>
+                        <select id="status-filter"
+                            class="w-full px-4 py-2 border border-light-gray rounded-md text-charcoal focus:outline-none focus:ring-2 focus:ring-soft-gold">
+                            <option value="">All Status</option>
+                            <option value="for-sale">For Sale</option>
+                            <option value="sold">Sold</option>
+                        </select>
+                    </div>
+
+                    <!-- Reset Button -->
+                    <div class="flex items-end">
+                        <button id="reset-filters"
+                            class="w-full bg-soft-gold text-charcoal px-4 py-2 rounded-md font-semibold hover:bg-dark-gold transition-colors duration-300">
+                            Reset Filters
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Properties Grid ===== -->
+        <section class="py-20 bg-ivory">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="properties-grid">
+
+                    <!-- Property Card 1 -->
+                    <div class="property-card rounded-lg overflow-hidden shadow-xl transform transition-all duration-500 hover:scale-[1.02] group"
+                        data-location="san-diego" data-price="12500000" data-bedrooms="5" data-status="for-sale"
+                        data-aos="fade-up">
+                        <div class="relative h-96">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Elysian%20Real%20Estate%20Template/1.png"
+                                alt="La Jolla Modern" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute bottom-4 left-4 right-4 p-5 bg-black/30 backdrop-blur-lg rounded-lg border border-white/20">
+                                <h3 class="font-display text-2xl font-bold text-white mb-1">La Jolla Modern</h3>
+                                <div class="flex items-center text-soft-gold text-sm"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i><span>San Diego, California</span></div>
+                            </div>
+                            <span class="absolute top-4 left-4 bg-soft-gold text-charcoal text-xs font-bold uppercase px-3 py-1 rounded-full">For Sale</span>
+                        </div>
+                        <div class="bg-white p-6">
+                            <div class="mb-4">
+                                <span class="font-display text-3xl font-bold text-charcoal">$12,500,000</span>
+                            </div>
+                            <div class="flex justify-start space-x-6 text-charcoal/70 mb-5">
+                                <span class="flex items-center"><i data-lucide="bed" class="w-5 h-5 mr-2 text-soft-gold"></i> 5 bed</span>
+                                <span class="flex items-center"><i data-lucide="bath" class="w-5 h-5 mr-2 text-soft-gold"></i> 7 bath</span>
+                                <span class="flex items-center"><i data-lucide="ruler" class="w-5 h-5 mr-2 text-soft-gold"></i> 6,200 sf</span>
+                            </div>
+                            <a href="property-details.html"
+                                class="block w-full text-center bg-charcoal text-ivory px-6 py-3 rounded-md font-semibold hover:bg-soft-gold hover:text-charcoal transition-all duration-300">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Property Card 2 -->
+                    <div class="property-card rounded-lg overflow-hidden shadow-xl transform transition-all duration-500 hover:scale-[1.02] group"
+                        data-location="aspen" data-price="22000000" data-bedrooms="6" data-status="for-sale"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative h-96">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Elysian%20Real%20Estate%20Template/2.png"
+                                alt="Aspen Ridge" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute bottom-4 left-4 right-4 p-5 bg-black/30 backdrop-blur-lg rounded-lg border border-white/20">
+                                <h3 class="font-display text-2xl font-bold text-white mb-1">Aspen Ridge</h3>
+                                <div class="flex items-center text-soft-gold text-sm"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i><span>Aspen, Colorado</span></div>
+                            </div>
+                            <span class="absolute top-4 left-4 bg-soft-gold text-charcoal text-xs font-bold uppercase px-3 py-1 rounded-full">For Sale</span>
+                        </div>
+                        <div class="bg-white p-6">
+                            <div class="mb-4">
+                                <span class="font-display text-3xl font-bold text-charcoal">$22,000,000</span>
+                            </div>
+                            <div class="flex justify-start space-x-6 text-charcoal/70 mb-5">
+                                <span class="flex items-center"><i data-lucide="bed" class="w-5 h-5 mr-2 text-soft-gold"></i> 6 bed</span>
+                                <span class="flex items-center"><i data-lucide="bath" class="w-5 h-5 mr-2 text-soft-gold"></i> 8 bath</span>
+                                <span class="flex items-center"><i data-lucide="ruler" class="w-5 h-5 mr-2 text-soft-gold"></i> 8,100 sf</span>
+                            </div>
+                            <a href="property-details.html"
+                                class="block w-full text-center bg-charcoal text-ivory px-6 py-3 rounded-md font-semibold hover:bg-soft-gold hover:text-charcoal transition-all duration-300">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Property Card 3 -->
+                    <div class="property-card rounded-lg overflow-hidden shadow-xl transform transition-all duration-500 hover:scale-[1.02] group"
+                        data-location="new-york" data-price="35000000" data-bedrooms="4" data-status="sold"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative h-96">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Elysian%20Real%20Estate%20Template/3.png"
+                                alt="Park Ave Penthouse" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute bottom-4 left-4 right-4 p-5 bg-black/30 backdrop-blur-lg rounded-lg border border-white/20">
+                                <h3 class="font-display text-2xl font-bold text-white mb-1">Park Ave Penthouse</h3>
+                                <div class="flex items-center text-soft-gold text-sm"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i><span>New York, New York</span></div>
+                            </div>
+                            <span class="absolute top-4 left-4 bg-charcoal text-ivory text-xs font-bold uppercase px-3 py-1 rounded-full">Sold</span>
+                        </div>
+                        <div class="bg-white p-6">
+                            <div class="mb-4">
+                                <span class="font-display text-3xl font-bold text-charcoal">$35,000,000</span>
+                            </div>
+                            <div class="flex justify-start space-x-6 text-charcoal/70 mb-5">
+                                <span class="flex items-center"><i data-lucide="bed" class="w-5 h-5 mr-2 text-soft-gold"></i> 4 bed</span>
+                                <span class="flex items-center"><i data-lucide="bath" class="w-5 h-5 mr-2 text-soft-gold"></i> 5 bath</span>
+                                <span class="flex items-center"><i data-lucide="ruler" class="w-5 h-5 mr-2 text-soft-gold"></i> 5,000 sf</span>
+                            </div>
+                            <a href="property-details.html"
+                                class="block w-full text-center bg-charcoal text-ivory px-6 py-3 rounded-md font-semibold hover:bg-soft-gold hover:text-charcoal transition-all duration-300">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Property Card 4 -->
+                    <div class="property-card rounded-lg overflow-hidden shadow-xl transform transition-all duration-500 hover:scale-[1.02] group"
+                        data-location="miami" data-price="18500000" data-bedrooms="5" data-status="for-sale"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div class="relative h-96">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Elysian%20Real%20Estate%20Template/5.png"
+                                alt="Miami Waterfront" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute bottom-4 left-4 right-4 p-5 bg-black/30 backdrop-blur-lg rounded-lg border border-white/20">
+                                <h3 class="font-display text-2xl font-bold text-white mb-1">Miami Waterfront</h3>
+                                <div class="flex items-center text-soft-gold text-sm"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i><span>Miami, Florida</span></div>
+                            </div>
+                            <span class="absolute top-4 left-4 bg-soft-gold text-charcoal text-xs font-bold uppercase px-3 py-1 rounded-full">For Sale</span>
+                        </div>
+                        <div class="bg-white p-6">
+                            <div class="mb-4">
+                                <span class="font-display text-3xl font-bold text-charcoal">$18,500,000</span>
+                            </div>
+                            <div class="flex justify-start space-x-6 text-charcoal/70 mb-5">
+                                <span class="flex items-center"><i data-lucide="bed" class="w-5 h-5 mr-2 text-soft-gold"></i> 5 bed</span>
+                                <span class="flex items-center"><i data-lucide="bath" class="w-5 h-5 mr-2 text-soft-gold"></i> 6 bath</span>
+                                <span class="flex items-center"><i data-lucide="ruler" class="w-5 h-5 mr-2 text-soft-gold"></i> 7,500 sf</span>
+                            </div>
+                            <a href="property-details.html"
+                                class="block w-full text-center bg-charcoal text-ivory px-6 py-3 rounded-md font-semibold hover:bg-soft-gold hover:text-charcoal transition-all duration-300">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Property Card 5 -->
+                    <div class="property-card rounded-lg overflow-hidden shadow-xl transform transition-all duration-500 hover:scale-[1.02] group"
+                        data-location="los-angeles" data-price="28000000" data-bedrooms="6" data-status="for-sale"
+                        data-aos="fade-up" data-aos-delay="400">
+                        <div class="relative h-96">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Elysian%20Real%20Estate%20Template/9.png"
+                                alt="Hollywood Hills Estate" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute bottom-4 left-4 right-4 p-5 bg-black/30 backdrop-blur-lg rounded-lg border border-white/20">
+                                <h3 class="font-display text-2xl font-bold text-white mb-1">Hollywood Hills Estate</h3>
+                                <div class="flex items-center text-soft-gold text-sm"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i><span>Los Angeles, California</span></div>
+                            </div>
+                            <span class="absolute top-4 left-4 bg-soft-gold text-charcoal text-xs font-bold uppercase px-3 py-1 rounded-full">For Sale</span>
+                        </div>
+                        <div class="bg-white p-6">
+                            <div class="mb-4">
+                                <span class="font-display text-3xl font-bold text-charcoal">$28,000,000</span>
+                            </div>
+                            <div class="flex justify-start space-x-6 text-charcoal/70 mb-5">
+                                <span class="flex items-center"><i data-lucide="bed" class="w-5 h-5 mr-2 text-soft-gold"></i> 6 bed</span>
+                                <span class="flex items-center"><i data-lucide="bath" class="w-5 h-5 mr-2 text-soft-gold"></i> 7 bath</span>
+                                <span class="flex items-center"><i data-lucide="ruler" class="w-5 h-5 mr-2 text-soft-gold"></i> 9,000 sf</span>
+                            </div>
+                            <a href="property-details.html"
+                                class="block w-full text-center bg-charcoal text-ivory px-6 py-3 rounded-md font-semibold hover:bg-soft-gold hover:text-charcoal transition-all duration-300">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Property Card 6 -->
+                    <div class="property-card rounded-lg overflow-hidden shadow-xl transform transition-all duration-500 hover:scale-[1.02] group"
+                        data-location="san-diego" data-price="16000000" data-bedrooms="4" data-status="for-sale"
+                        data-aos="fade-up" data-aos-delay="500">
+                        <div class="relative h-96">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Elysian%20Real%20Estate%20Template/1.png"
+                                alt="Coastal Paradise" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute bottom-4 left-4 right-4 p-5 bg-black/30 backdrop-blur-lg rounded-lg border border-white/20">
+                                <h3 class="font-display text-2xl font-bold text-white mb-1">Coastal Paradise</h3>
+                                <div class="flex items-center text-soft-gold text-sm"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i><span>San Diego, California</span></div>
+                            </div>
+                            <span class="absolute top-4 left-4 bg-soft-gold text-charcoal text-xs font-bold uppercase px-3 py-1 rounded-full">For Sale</span>
+                        </div>
+                        <div class="bg-white p-6">
+                            <div class="mb-4">
+                                <span class="font-display text-3xl font-bold text-charcoal">$16,000,000</span>
+                            </div>
+                            <div class="flex justify-start space-x-6 text-charcoal/70 mb-5">
+                                <span class="flex items-center"><i data-lucide="bed" class="w-5 h-5 mr-2 text-soft-gold"></i> 4 bed</span>
+                                <span class="flex items-center"><i data-lucide="bath" class="w-5 h-5 mr-2 text-soft-gold"></i> 5 bath</span>
+                                <span class="flex items-center"><i data-lucide="ruler" class="w-5 h-5 mr-2 text-soft-gold"></i> 5,800 sf</span>
+                            </div>
+                            <a href="property-details.html"
+                                class="block w-full text-center bg-charcoal text-ivory px-6 py-3 rounded-md font-semibold hover:bg-soft-gold hover:text-charcoal transition-all duration-300">View Details</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Call to Action Section ===== -->
+        <section class="py-20 bg-ivory">
+            <div class="container mx-auto px-6">
+                <div class="bg-charcoal text-ivory rounded-lg shadow-2xl p-10 md:p-20 text-center" data-aos="fade-up">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                        Find Your Perfect Property
+                    </h2>
+                    <p class="text-lg text-ivory/80 max-w-2xl mx-auto mb-10">
+                        Can't find what you're looking for? Our agents specialize in sourcing off-market properties.
+                    </p>
+                    <a href="contact.html"
+                        class="bg-soft-gold text-charcoal px-10 py-4 rounded-md text-lg font-semibold hover:bg-dark-gold shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+                        Schedule a Consultation
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="bg-charcoal text-ivory/70 pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Column 1: Brand & Newsletter -->
+                <div>
+                    <h3 class="font-display text-3xl font-bold text-white mb-4">Elysian</h3>
+                    <p class="text-sm mb-6 max-w-xs">
+                        The new standard in luxury real estate.
+                    </p>
+                    <h4 class="text-lg font-semibold text-white mb-4">Join Our Newsletter</h4>
+                    <form class="flex">
+                        <input type="email" placeholder="Your Email"
+                            class="w-full bg-ivory/10 text-white px-4 py-2 rounded-l-md focus:outline-none focus:ring-2 focus:ring-soft-gold border-none">
+                        <button
+                            class="bg-soft-gold text-charcoal px-4 py-2 rounded-r-md font-semibold hover:bg-dark-gold transition-colors">
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="hover:text-soft-gold transition-colors">Home</a></li>
+                        <li><a href="property-listings.html" class="hover:text-soft-gold transition-colors">Properties</a></li>
+                        <li><a href="agents.html" class="hover:text-soft-gold transition-colors">Our Agents</a></li>
+                        <li><a href="about-us.html" class="hover:text-soft-gold transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-soft-gold transition-colors">GET A QUOTE</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-6">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-5 h-5 mr-3 mt-1 text-soft-gold flex-shrink-0"></i>
+                            <span>123 Luxury Ave, Beverly Hills, CA 90210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="phone" class="w-5 h-5 mr-3 text-soft-gold"></i>
+                            <span>8768744627</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="mail" class="w-5 h-5 mr-3 text-soft-gold"></i>
+                            <span>Elysian@elysian.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Social Media -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-6">Follow Us</h4>
+                    <div class="flex space-x-5">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-ivory/10 flex items-center justify-center hover:bg-soft-gold hover:text-charcoal transition-all duration-300"
+                            aria-label="Facebook">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-ivory/10 flex items-center justify-center hover:bg-soft-gold hover:text-charcoal transition-all duration-300"
+                            aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-ivory/10 flex items-center justify-center hover:bg-soft-gold hover:text-charcoal transition-all duration-300"
+                            aria-label="LinkedIn">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-ivory/10 flex items-center justify-center hover:bg-soft-gold hover:text-charcoal transition-all duration-300"
+                            aria-label="Twitter">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-ivory/20 mt-16 pt-8 text-center text-sm">
+                <p>
+                    © <span id="current-year"></span> Elysian Estates. All Rights Reserved. |
+                    <a href="privacy-policy.html" class="hover:text-soft-gold transition-colors">Privacy Policy</a> |
+                    Designed with Elegance |
+                    Made by <a href="https://www.codewithfaraz.com" target="_blank"
+                        class="hover:text-soft-gold transition-colors underline">CodeWithFaraz</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <a href="#top" id="scrollTopBtn" aria-label="Scroll to top">
+        <!-- SVG Progress Ring -->
+        <svg class="w-full h-full" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background Circle -->
+            <circle class="stroke-charcoal/10" cx="18" cy="18" r="16" stroke-width="2" fill="none"></circle>
+            <!-- Progress Circle -->
+            <circle id="progress-ring" class="stroke-soft-gold" cx="18" cy="18" r="16" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-dasharray="100.53" stroke-dashoffset="100.53"></circle>
+        </svg>
+        <!-- Icon (sits on top) -->
+        <span class="absolute text-charcoal">
+            <i data-lucide="chevron-up" class="w-6 h-6"></i>
+        </span>
+    </a>
+
+    <!-- Chatbot Toggle Button -->
+    <button id="chat-toggle-btn" aria-label="Open chat">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+    </button>
+
+    <!-- Chatbot Window -->
+    <div id="chatbot-window">
+        <!-- Header -->
+        <div class="chatbot-header">
+            <div>
+                <h3 class="font-display text-xl font-bold">Elysian Concierge</h3>
+                <p class="text-xs text-ivory/70">How can we help you today?</p>
+            </div>
+            <button id="chatbot-close-btn" aria-label="Close chat">
+                <i data-lucide="x" class="w-6 h-6 text-ivory/70 hover:text-ivory"></i>
+            </button>
+        </div>
+
+        <!-- Messages -->
+        <div class="chatbot-messages" id="chatbot-messages">
+            <!-- Initial Bot Message -->
+            <div class="chat-message bot">
+                Welcome to Elysian Estates. Ask me about properties, our services, or for buying advice.
+                <div class="text-xs text-charcoal/60 mt-3 pt-3 border-t border-charcoal/10">
+                    Need to speak to a person?
+                    <a href="tel:+13105550123" class="font-semibold text-soft-gold hover:text-dark-gold">Call Us</a> or
+                    <a href="mailto:Elysian@elysian.com"
+                        class="font-semibold text-soft-gold hover:text-dark-gold">Email Us</a>.
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Form -->
+        <div class="chatbot-input">
+            <form id="chatbot-form">
+                <input type="text" id="chatbot-input" placeholder="Type your message..." autocomplete="off" required>
+                <button type="submit" aria-label="Send message">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Property Filter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const locationFilter = document.getElementById('location-filter');
+            const priceFilter = document.getElementById('price-filter');
+            const bedroomsFilter = document.getElementById('bedrooms-filter');
+            const statusFilter = document.getElementById('status-filter');
+            const resetBtn = document.getElementById('reset-filters');
+            const propertyCards = document.querySelectorAll('.property-card');
+
+            function filterProperties() {
+                const location = locationFilter.value;
+                const price = priceFilter.value;
+                const bedrooms = bedroomsFilter.value;
+                const status = statusFilter.value;
+
+                propertyCards.forEach(card => {
+                    let show = true;
+
+                    // Location filter
+                    if (location && card.dataset.location !== location) {
+                        show = false;
+                    }
+
+                    // Status filter
+                    if (status && card.dataset.status !== status) {
+                        show = false;
+                    }
+
+                    // Price filter
+                    if (price && show) {
+                        const cardPrice = parseInt(card.dataset.price);
+                        if (price === 'under-10' && cardPrice >= 10000000) show = false;
+                        if (price === '10-20' && (cardPrice < 10000000 || cardPrice >= 20000000)) show = false;
+                        if (price === '20-30' && (cardPrice < 20000000 || cardPrice >= 30000000)) show = false;
+                        if (price === '30-plus' && cardPrice < 30000000) show = false;
+                    }
+
+                    // Bedrooms filter
+                    if (bedrooms && show) {
+                        const cardBedrooms = parseInt(card.dataset.bedrooms);
+                        if (bedrooms === '3' && cardBedrooms < 3) show = false;
+                        if (bedrooms === '4' && cardBedrooms < 4) show = false;
+                        if (bedrooms === '5' && cardBedrooms < 5) show = false;
+                        if (bedrooms === '6' && cardBedrooms < 6) show = false;
+                    }
+
+                    card.style.display = show ? '' : 'none';
+                });
+            }
+
+            locationFilter.addEventListener('change', filterProperties);
+            priceFilter.addEventListener('change', filterProperties);
+            bedroomsFilter.addEventListener('change', filterProperties);
+            statusFilter.addEventListener('change', filterProperties);
+
+            resetBtn.addEventListener('click', function () {
+                locationFilter.value = '';
+                priceFilter.value = '';
+                bedroomsFilter.value = '';
+                statusFilter.value = '';
+                propertyCards.forEach(card => card.style.display = '');
+            });
+        });
+    </script>
+
+    <!-- JavaScript -->
+    <script type="module" src="JS/script.js"></script>
+</body>
+
+</html>
