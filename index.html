@@ -674,7 +674,12 @@
     </div>
 
     <!-- JavaScript -->
-   <script type="module" src="JS/script.js"></script>
+   <script>
+  // Ensure Lucide icons are rendered
+  window.addEventListener('DOMContentLoaded', () => {
+    lucide.createIcons();
+  });
+</script>
 </body>
 
 </html>
